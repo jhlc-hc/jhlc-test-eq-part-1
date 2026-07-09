@@ -88,12 +88,12 @@
       }
     ];
 
-    // --- DATA JAWABAN & PERTANYAAN KHUSUS SOAL 1-20 ---
+    // --- DATA JAWABAN & PERTANYAAN KHUSUS SOAL 1-20 (Skor 0 diganti menjadi 0.5) ---
     const QUESTIONS = [
       { id: 1, quadrant: 1, text: 'Emosi saya umumnya', options: [{ text: 'Memiliki dampak yang besar pada cara saya berperilaku.', score: 1 }, { text: 'Hampir tidak berdampak pada cara saya berperilaku.', score: 0.5 }] },
       { id: 2, quadrant: 1, text: 'Saya umumnya dipandu oleh', options: [{ text: 'Tujuan dan nilai-nilai saya.', score: 1 }, { text: 'Tujuan dan nilai-nilai lainnya.', score: 0.5 }] },
       { id: 3, quadrant: 1, text: 'Saat saya berada di bawah tekanan, saya biasanya memiliki', options: [{ text: 'Mengubah perilaku dari biasanya.', score: 1 }, { text: 'Perilaku yang tetap tidak berubah.', score: 0.5 }] },
-      { id: 4, quadrant: 1, text: 'Saya umumnya belajar paling banyak', options: [{ text: 'Dari refleksi atas pengalaman masa lalu.', score: 1 }, { text: 'Dengan melakukan aktivitas secara aktif.', score: 0.5 }] },
+      { id: 4, quadrant: 1, text: 'Saya umumnya belajar paling banyak', options: [{ text: 'Dari refleksi atas pengalaman masa lalu.', score: 1 }, { text: 'By actively doing activities.', score: 0.5 }] },
       { id: 5, quadrant: 1, text: 'Saya umumnya', options: [{ text: 'Saya memiliki selera humor yang baik tentang diri saya sendiri.', score: 1 }, { text: 'Menganggap diri saya serius.', score: 0.5 }] },
       { id: 6, quadrant: 1, text: 'Saya memperkenalkan diri.', options: [{ text: 'Dengan rasa percaya diri dan memiliki "kharisma".', score: 0.5 }, { text: 'Dengan sedikit rasa percaya diri dan kehati-hatian.', score: 1 }] },
       { id: 7, quadrant: 1, text: 'Di mana pun ada ketidakpastian dan tekanan, saya selalu', options: [{ text: 'Tegas dan mengambil keputusan yang tepat.', score: 0.5 }, { text: 'Berhati-hati dalam mengambil keputusan yang tepat.', score: 1 }] },
@@ -105,7 +105,7 @@
       { id: 12, quadrant: 2, text: 'Saat saya berada di bawah tekanan', options: [{ text: 'Saya berpikir jernih dan tetap fokus.', score: 1 }, { text: 'Saya mudah teralihkan perhatiannya oleh hal-hal lain.', score: 0.5 }] },
       { id: 13, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Lakukan seperti yang kukatakan akan kulakukan.', score: 1 }, { text: 'Hanya melakukan apa yang harus saya lakukan.', score: 0.5 }] },
       { id: 14, quadrant: 2, text: 'Kepercayaan dari orang lain', options: [{ text: 'Dibangun berdasarkan keandalan dan keaslian.', score: 1 }, { text: 'Diberikan kepada saya secara otomatis.', score: 0.5 }] },
-      { id: 15, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Fleksibel dalam cara saya melihat peristiwa.', score: 1 }, { text: 'Mampu melihat peristiwa apa adanya.', score: 0.5 }] },
+      { id: 15, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Fleksibel dalam cara saya melihat peristiwa.', score: 1 }, { text: 'Mable melihat peristiwa apa adanya.', score: 0.5 }] },
       { id: 16, quadrant: 2, text: 'Saat situasi berubah, saya selalu', options: [{ text: 'Menangani berbagai tuntutan dan prioritas yang berubah-ubah dengan lancar.', score: 1 }, { text: 'Bekerja keras untuk mencoba memenuhi tuntutan tersebut.', score: 0.5 }] },
       { id: 17, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Menetapkan tujuan yang menantang bagi diri saya sendiri.', score: 1 }, { text: 'Menyelesaikan tujuan yang telah ditetapkan untuk saya.', score: 0.5 }] },
       { id: 18, quadrant: 2, text: 'Ketika hambatan dan kemunduran terjadi dalam mengejar tujuan saya, saya selalu', options: [{ text: 'Tetaplah berupaya mencapai tujuan meskipun apa pun yang telah terjadi.', score: 1 }, { text: 'Menyesuaikan kembali tujuan dan/atau harapan.', score: 0.5 }] },
@@ -216,9 +216,6 @@
 
     // --- SCORE DASHBOARD ---
     function ScoreDashboard({ answers, onReset }) {
-      const [name, setName] = useState('');
-      const [hotelUnit, setHotelUnit] = useState('');
-
       let totalEQScorePart1 = 0;
 
       const pilarResults = QUADRANTS.map((quad) => {
@@ -232,53 +229,39 @@
 
         let statusText = '';
         let badgeColor = '';
-        if (score >= 8.0) { statusText = 'Excellent'; badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200'; }
-        else if (score >= 6.0) { statusText = 'Good'; badgeColor = 'bg-blue-100 text-blue-800 border-blue-200'; }
-        else if (score >= 4.0) { statusText = 'Average'; badgeColor = 'bg-amber-100 text-amber-800 border-amber-200'; }
+        
+        // Penyesuaian rentang skor baru (Skala 5.0 - 10.0 per pilar)
+        if (score >= 9.0) { statusText = 'Excellent'; badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200'; }
+        else if (score >= 7.5) { statusText = 'Good'; badgeColor = 'bg-blue-100 text-blue-800 border-blue-200'; }
+        else if (score >= 6.0) { statusText = 'Average'; badgeColor = 'bg-amber-100 text-amber-800 border-amber-200'; }
         else { statusText = 'Needs Development'; badgeColor = 'bg-rose-100 text-rose-800 border-rose-200'; }
 
         return { ...quad, score, statusText, badgeColor };
       });
 
-      // HITUNG RATA-RATA SESUAI GAMBAR 2 (Total / 2 Pilar)
       const averageScore = totalEQScorePart1 / 2;
 
-      // LOGIKA PERSONALISED FEEDBACK BARU BERDASARKAN RATA-RATA SKALA 0 - 10
       let feedbackText = '';
-      if (averageScore >= 8.0) {
-        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, it means Excellent — You demonstrate strong emotional intelligence in this area. Keep it up!`;
+      if (averageScore >= 9.0) {
+        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, yang berarti Excellent — Anda menunjukkan kecerdasan emosional yang sangat matang dalam mengenali dan mengelola diri sendiri.`;
+      } else if (averageScore >= 7.5) {
+        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, yang berarti Good — Anda memiliki fondasi yang solid, dengan ruang kecil untuk memoles efisiensi emosi Anda.`;
       } else if (averageScore >= 6.0) {
-        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, it means Good — You have solid competencies but there's room to refine.`;
-      } else if (averageScore >= 4.0) {
-        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, it means Average — This area may benefit from focused attention and practice.`;
+        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, yang berarti Average — Area ini memerlukan perhatian dan latihan yang lebih fokus untuk menghadapi tekanan kerja harian.`;
       } else {
-        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, it means Needs Development — Targeted effort here could significantly boost your effectiveness.`;
+        feedbackText = `Rata-rata skor anda ${averageScore.toFixed(1)}, yang berarti Needs Development — Upaya terarah di bidang ini akan sangat membantu meningkatkan efektivitas kepemimpinan dan stabilitas performa Anda.`;
       }
 
       return (
         <div className="max-w-4xl mx-auto my-4 p-1 md:p-6">
           <div className="bg-white rounded-3xl border border-slate-200 shadow-md p-6 md:p-8 space-y-6">
             
-            <div className="print-hidden bg-slate-50 border border-slate-200 p-5 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Nama / Inisial Markom</label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Ketik nama Anda di sini..." className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-slate-400 font-medium font-sans transition-all"/>
-              </div>
-              <div className="space-y-1">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider">Unit Hotel / Cluster Properti</label>
-                <input type="text" value={hotelUnit} onChange={(e) => setHotelUnit(e.target.value)} placeholder="Contoh: Marcom - JHL Solitaire..." className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-slate-400 font-medium font-sans transition-all"/>
-              </div>
-            </div>
-
             <div className="border-b border-slate-100 pb-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
               <div>
                 <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2.5 py-0.5 rounded-md uppercase tracking-wider">
                   Official Competency Report &mdash; Part 1
                 </span>
                 <h1 className="text-xl font-extrabold text-slate-900 tracking-tight mt-1">Self Awareness & Regulation Matrix</h1>
-                <p className="text-xs text-slate-500 font-medium mt-0.5">
-                  Personnel: <span className="text-slate-800 font-bold">{name || 'Assessment Tanpa Nama'}</span> &bull; Unit: <span className="text-slate-800 font-bold">{hotelUnit || 'General Cluster / Property'}</span>
-                </p>
               </div>
               <div className="print-hidden flex items-center gap-2">
                 <button onClick={() => window.print()} className="px-4 py-2.5 bg-slate-100 border border-slate-200 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-200 cursor-pointer transition-all">Export Report (PDF)</button>
@@ -286,7 +269,7 @@
               </div>
             </div>
 
-            {/* CUMULATIVE SCORE BANNER */}
+            {/* CUMULATIVE SCORE BANNER (Max 20.0, Min 10.0) */}
             <div className="bg-[#FFFF00] border-2 border-slate-900 p-6 rounded-sm text-center space-y-2 shadow-sm print-card">
               <h2 className="text-xs font-extrabold text-slate-900 tracking-widest uppercase">Part 1 Cumulative Score</h2>
               <div className="text-5xl font-black font-mono text-slate-900 tracking-tighter">
@@ -294,11 +277,11 @@
                 <span className="text-xl font-bold opacity-60 font-sans ml-1">/20.0</span>
               </div>
               <p className="text-xs font-bold text-slate-900 md:text-sm tracking-tight pt-1">
-                Rata-rata Kuadran: {averageScore.toFixed(1)} / 10.0
+                Rata-rata Kuadran: {averageScore.toFixed(1)} / 10.0 (Rentang Skor: 5.0 - 10.0)
               </p>
             </div>
 
-            {/* NEW UPDATE: PERSONALISED FEEDBACK PANEL */}
+            {/* PERSONALISED FEEDBACK PANEL */}
             <div className="border border-amber-200 bg-amber-50/50 p-5 rounded-md space-y-1.5 print-card">
               <h3 className="text-[10px] font-bold tracking-widest uppercase text-amber-900/80 block">Personalised Feedback</h3>
               <p className="text-xs text-slate-800 leading-relaxed font-semibold">
@@ -325,8 +308,9 @@
                         <span className="text-slate-400">Score Matrix</span>
                         <span className="font-bold text-slate-800">{p.score.toFixed(1)}/10.0</span>
                       </div>
+                      {/* Progress bar dihitung proporsional dari rentang minimum 5 ke 10 */}
                       <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden border border-slate-200/40">
-                        <div className={`${p.progressColor} h-full rounded-full`} style={{ width: `${(p.score / 10) * 100}%` }} />
+                        <div className={`${p.progressColor} h-full rounded-full`} style={{ width: `${((p.score) / 10) * 100}%` }} />
                       </div>
                     </div>
                   </div>
