@@ -90,27 +90,27 @@
 
     // --- DATA JAWABAN & PERTANYAAN KHUSUS SOAL 1-20 ---
     const QUESTIONS = [
-      { id: 1, quadrant: 1, text: 'Emosi saya umumnya', options: [{ text: 'Memiliki dampak yang besar pada cara saya berperilaku.', score: 1 }, { text: 'Hampir tidak berdampak pada cara saya berperilaku.', score: 0 }] },
-      { id: 2, quadrant: 1, text: 'Saya umumnya dipandu oleh', options: [{ text: 'Tujuan dan nilai-nilai saya.', score: 1 }, { text: 'Tujuan dan nilai-nilai lainnya.', score: 0 }] },
-      { id: 3, quadrant: 1, text: 'Saat saya berada di bawah tekanan, saya biasanya memiliki', options: [{ text: 'Mengubah perilaku dari biasanya.', score: 1 }, { text: 'Perilaku yang tetap tidak berubah.', score: 0 }] },
-      { id: 4, quadrant: 1, text: 'Saya umumnya belajar paling banyak', options: [{ text: 'Dari refleksi atas pengalaman masa lalu.', score: 1 }, { text: 'Dengan melakukan aktivitas secara aktif.', score: 0 }] },
-      { id: 5, quadrant: 1, text: 'Saya umumnya', options: [{ text: 'Saya memiliki selera humor yang baik tentang diri saya sendiri.', score: 1 }, { text: 'Menganggap diri saya serius.', score: 0 }] },
-      { id: 6, quadrant: 1, text: 'Saya memperkenalkan diri.', options: [{ text: 'Dengan rasa percaya diri dan memiliki "kharisma".', score: 0 }, { text: 'Dengan sedikit rasa percaya diri dan kehati-hatian.', score: 1 }] },
-      { id: 7, quadrant: 1, text: 'Di mana pun ada ketidakpastian dan tekanan, saya selalu', options: [{ text: 'Tegas dan mengambil keputusan yang tepat.', score: 0 }, { text: 'Berhati-hati dalam mengambil keputusan yang tepat.', score: 1 }] },
-      { id: 8, quadrant: 1, text: 'Saya selalu menyuarakan pandangan bahwa', options: [{ text: 'Tidak populer dan berani mengambil risiko demi kebenaran.', score: 1 }, { text: 'Sebagian besar orang lain setuju dan mendukungnya.', score: 0 }] },
-      { id: 9, quadrant: 1, text: 'Saya selalu suka', options: [{ text: 'Menghadapi tantangan baru.', score: 1 }, { text: 'Mempertahankan status quo.', score: 0 }] },
-      { id: 10, quadrant: 1, text: 'Saya umumnya', options: [{ text: 'Menumbuhkan kepercayaan pada orang lain.', score: 1 }, { text: 'Mengandalkan kepercayaan orang lain.', score: 0 }] },
+      { id: 1, quadrant: 1, text: 'Emosi saya umumnya', options: [{ text: 'Memiliki dampak yang besar pada cara saya berperilaku.', score: 1 }, { text: 'Hampir tidak berdampak pada cara saya berperilaku.', score: 0.5 }] },
+      { id: 2, quadrant: 1, text: 'Saya umumnya dipandu oleh', options: [{ text: 'Tujuan dan nilai-nilai saya.', score: 1 }, { text: 'Tujuan dan nilai-nilai lainnya.', score: 0.5 }] },
+      { id: 3, quadrant: 1, text: 'Saat saya berada di bawah tekanan, saya biasanya memiliki', options: [{ text: 'Mengubah perilaku dari biasanya.', score: 1 }, { text: 'Perilaku yang tetap tidak berubah.', score: 0.5 }] },
+      { id: 4, quadrant: 1, text: 'Saya umumnya belajar paling banyak', options: [{ text: 'Dari refleksi atas pengalaman masa lalu.', score: 1 }, { text: 'Dengan melakukan aktivitas secara aktif.', score: 0.5 }] },
+      { id: 5, quadrant: 1, text: 'Saya umumnya', options: [{ text: 'Saya memiliki selera humor yang baik tentang diri saya sendiri.', score: 1 }, { text: 'Menganggap diri saya serius.', score: 0.5 }] },
+      { id: 6, quadrant: 1, text: 'Saya memperkenalkan diri.', options: [{ text: 'Dengan rasa percaya diri dan memiliki "kharisma".', score: 0.5 }, { text: 'Dengan sedikit rasa percaya diri dan kehati-hatian.', score: 1 }] },
+      { id: 7, quadrant: 1, text: 'Di mana pun ada ketidakpastian dan tekanan, saya selalu', options: [{ text: 'Tegas dan mengambil keputusan yang tepat.', score: 0.5 }, { text: 'Berhati-hati dalam mengambil keputusan yang tepat.', score: 1 }] },
+      { id: 8, quadrant: 1, text: 'Saya selalu menyuarakan pandangan bahwa', options: [{ text: 'Tidak populer dan berani mengambil risiko demi kebenaran.', score: 1 }, { text: 'Sebagian besar orang lain setuju dan mendukungnya.', score: 0.5 }] },
+      { id: 9, quadrant: 1, text: 'Saya selalu suka', options: [{ text: 'Menghadapi tantangan baru.', score: 1 }, { text: 'Mempertahankan status quo.', score: 0.5 }] },
+      { id: 10, quadrant: 1, text: 'Saya umumnya', options: [{ text: 'Menumbuhkan kepercayaan pada orang lain.', score: 1 }, { text: 'Mengandalkan kepercayaan orang lain.', score: 0.5 }] },
 
-      { id: 11, quadrant: 2, text: 'Saya umumnya', options: [{ text: 'Mengendalikan emosi dan dorongan impulsif saya yang mengganggu.', score: 1 }, { text: 'Membiarkan emosi dan suasana hati saya mempengaruhi perilaku saya.', score: 0 }] },
-      { id: 12, quadrant: 2, text: 'Saat saya berada di bawah tekanan', options: [{ text: 'Saya berpikir jernih dan tetap fokus.', score: 1 }, { text: 'Saya mudah teralihkan perhatiannya oleh hal-hal lain.', score: 0 }] },
-      { id: 13, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Lakukan seperti yang kukatakan akan kulakukan.', score: 1 }, { text: 'Hanya melakukan apa yang harus saya lakukan.', score: 0 }] },
-      { id: 14, quadrant: 2, text: 'Kepercayaan dari orang lain', options: [{ text: 'Dibangun berdasarkan keandalan dan keaslian.', score: 1 }, { text: 'Diberikan kepada saya secara otomatis.', score: 0 }] },
-      { id: 15, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Fleksibel dalam cara saya melihat peristiwa.', score: 1 }, { text: 'Mampu melihat peristiwa apa adanya.', score: 0 }] },
-      { id: 16, quadrant: 2, text: 'Saat situasi berubah, saya selalu', options: [{ text: 'Menangani berbagai tuntutan dan prioritas yang berubah-ubah dengan lancar.', score: 1 }, { text: 'Bekerja keras untuk mencoba memenuhi tuntutan tersebut.', score: 0 }] },
-      { id: 17, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Menetapkan tujuan yang menantang bagi diri saya sendiri.', score: 1 }, { text: 'Menyelesaikan tujuan yang telah ditetapkan untuk saya.', score: 0 }] },
-      { id: 18, quadrant: 2, text: 'Ketika hambatan dan kemunduran terjadi dalam mengejar tujuan saya, saya selalu', options: [{ text: 'Tetaplah berupaya mencapai tujuan meskipun apa pun yang telah terjadi.', score: 1 }, { text: 'Menyesuaikan kembali tujuan dan/atau harapan.', score: 0 }] },
-      { id: 19, quadrant: 2, text: 'Secara umum, saya', options: [{ text: 'Mengejar tujuan di luar apa yang diduga atau diharapkan dari saya.', score: 1 }, { text: 'Mengejar tujuan hanya sejauh yang dituntut dari saya.', score: 0 }] },
-      { id: 20, quadrant: 2, text: 'Ketika saya mengidentifikasi peluang, saya selalu', options: [{ text: 'Proaktif dalam mengejar peluang tersebut.', score: 1 }, { text: 'Ragu apakah akan mengejar kesempatan tersebut.', score: 0 }] }
+      { id: 11, quadrant: 2, text: 'Saya umumnya', options: [{ text: 'Mengendalikan emosi dan dorongan impulsif saya yang mengganggu.', score: 1 }, { text: 'Membiarkan emosi dan suasana hati saya mempengaruhi perilaku saya.', score: 0.5 }] },
+      { id: 12, quadrant: 2, text: 'Saat saya berada di bawah tekanan', options: [{ text: 'Saya berpikir jernih dan tetap fokus.', score: 1 }, { text: 'Saya mudah teralihkan perhatiannya oleh hal-hal lain.', score: 0.5 }] },
+      { id: 13, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Lakukan seperti yang kukatakan akan kulakukan.', score: 1 }, { text: 'Hanya melakukan apa yang harus saya lakukan.', score: 0.5 }] },
+      { id: 14, quadrant: 2, text: 'Kepercayaan dari orang lain', options: [{ text: 'Dibangun berdasarkan keandalan dan keaslian.', score: 1 }, { text: 'Diberikan kepada saya secara otomatis.', score: 0.5 }] },
+      { id: 15, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Fleksibel dalam cara saya melihat peristiwa.', score: 1 }, { text: 'Mampu melihat peristiwa apa adanya.', score: 0.5 }] },
+      { id: 16, quadrant: 2, text: 'Saat situasi berubah, saya selalu', options: [{ text: 'Menangani berbagai tuntutan dan prioritas yang berubah-ubah dengan lancar.', score: 1 }, { text: 'Bekerja keras untuk mencoba memenuhi tuntutan tersebut.', score: 0.5 }] },
+      { id: 17, quadrant: 2, text: 'Saya selalu', options: [{ text: 'Menetapkan tujuan yang menantang bagi diri saya sendiri.', score: 1 }, { text: 'Menyelesaikan tujuan yang telah ditetapkan untuk saya.', score: 0.5 }] },
+      { id: 18, quadrant: 2, text: 'Ketika hambatan dan kemunduran terjadi dalam mengejar tujuan saya, saya selalu', options: [{ text: 'Tetaplah berupaya mencapai tujuan meskipun apa pun yang telah terjadi.', score: 1 }, { text: 'Menyesuaikan kembali tujuan dan/atau harapan.', score: 0.5 }] },
+      { id: 19, quadrant: 2, text: 'Secara umum, saya', options: [{ text: 'Mengejar tujuan di luar apa yang diduga atau diharapkan dari saya.', score: 1 }, { text: 'Mengejar tujuan hanya sejauh yang dituntut dari saya.', score: 0.5 }] },
+      { id: 20, quadrant: 2, text: 'Ketika saya mengidentifikasi peluang, saya selalu', options: [{ text: 'Proaktif dalam mengejar peluang tersebut.', score: 1 }, { text: 'Ragu apakah akan mengejar kesempatan tersebut.', score: 0.5 }] }
     ];
 
     // --- LANDING PAGE ---
